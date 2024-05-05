@@ -10,18 +10,22 @@ from queue import Queue
 import eventlet
 eventlet.monkey_patch()
 
-def modify_urls():
+urls = [
+    "https://raw.githubusercontent.com/ksws0134422/tv/main/ip.html"
+    ]
+
+def modify_urls(url):
     modified_urls = []
-    base_url = "http://119.125."
-    port = ":9901"
+    ip_start_index = url.find("//") + 2
+    ip_end_index = url.find(":", ip_start_index)
+    base_url = url[:ip_start_index]  # http:// or https://
+    ip_address = url[ip_start_index:ip_end_index]
+    port = url[ip_end_index:]
     ip_end = "/iptv/live/1000.json?key=txiptv"
-    
-    # 循环遍历特定 IP 范围内的地址
     for i in range(1, 256):
-        for j in range(1, 256):
-            ip_address = f"{i}.{j}"
-            modified_url = f"{base_url}{ip_address}{port}{ip_end}"
-            modified_urls.append(modified_url)
+        modified_ip = f"{ip_address[:-1]}{i}"
+        modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
+        modified_urls.append(modified_url)
 
     return modified_urls
 
@@ -38,7 +42,6 @@ def is_url_accessible(url):
 
 results = []
 
-urls = modify_urls()
 for url in urls:
     # 创建一个Chrome WebDriver实例
     chrome_options = Options()
