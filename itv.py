@@ -119,8 +119,11 @@ for url in urls:
                     if isinstance(item, dict):
                         name = item.get('name')
                         urlx = item.get('url')
+                        chidx = item.get('chid')
                         if ',' in urlx:
                             urlx=f"aaaaaaaa"
+                        if 'udp' in urlx:
+                            urlx=f"/tsfile/live/{chidx}_1.m3u8?key=txiptv&playlive=1&authid=0"
                         #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
                         if 'http' in urlx:
                             urld = f"{urlx}"
