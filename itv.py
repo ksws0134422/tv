@@ -11,7 +11,7 @@ import eventlet
 eventlet.monkey_patch()
 
 urls = [
-    "http://192.168.2.233/H%3A/TXT/ip.html"
+    "https://raw.githubusercontent.com/ksws0134422/tv/main/ip.html"
     ]
 
 def modify_urls(url):
@@ -97,7 +97,7 @@ for url in urls:
                 valid_urls.append(result)
 
 with open("itvlist.txt", 'w', encoding='utf-8') as file:
-    file.write('央视频道,#genre#\n')
+    file.write('五华频道,#genre#\n')
     for url in valid_urls:
         try:
             ip_start_index = url.find("//") + 2
