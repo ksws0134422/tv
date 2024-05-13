@@ -22,15 +22,8 @@ def modify_urls(url):
     ip_address = url[ip_start_index:ip_end_index]
     port = url[ip_end_index:]
     ip_end = "/iptv/live/1000.json?key=txiptv"
-    for i in range(1, 256):
-        modified_ip = f"{ip_address[:-1]}{i}"
-        modified_url = f"{base_url}{modified_ip}{port}{ip_end}"
-        modified_urls.append(modified_url)
+    modified_urls = f"{base_url}{ip_address}{port}{ip_end}"
 
-    return modified_urls
-    print(f"{modified_urls}\n")
-
-"""
 def is_url_accessible(url):
     try:
         response = requests.get(url, timeout=3)
@@ -177,4 +170,3 @@ with open("itvlist.txt", 'w', encoding='utf-8') as file:
         except Exception as e:
             print(f"An error occurred while processing URL: {url}")
             print(e)
-"""
