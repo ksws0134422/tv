@@ -28,8 +28,8 @@ def modify_urls(url):
         modified_urls.append(modified_url)
 
     return modified_urls
-with open("urllist.txt", 'w', encoding='utf-8') as file:
-file.write(f"{modified_urls}\n")
+    with open("urllist.txt", 'w', encoding='utf-8') as file:
+        file.write(f"{modified_urls}\n")
 
 """
 def is_url_accessible(url):
