@@ -99,6 +99,8 @@ for url in urls:
 with open("itvlist.txt", 'w', encoding='utf-8') as file:
     file.write('五华频道,#genre#\n')
     for url in valid_urls:
+        print(url)
+    for url in valid_urls:
         try:
             ip_start_index = url.find("//") + 2
             ip_dot_start = url.find(".") + 1
