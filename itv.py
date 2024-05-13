@@ -22,7 +22,9 @@ def modify_urls(url):
     ip_address = url[ip_start_index:ip_end_index]
     port = url[ip_end_index:]
     ip_end = "/iptv/live/1000.json?key=txiptv"
-    modified_urls = f"{base_url}{ip_address}{port}{ip_end}"
+    modified_url = f"{base_url}{ip_address}{port}{ip_end}"
+    modified_urls.append(modified_url)    
+    return modified_urls
 
 def is_url_accessible(url):
     try:
