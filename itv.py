@@ -28,7 +28,7 @@ def modify_urls(url):
         modified_urls.append(modified_url)
 
     return modified_urls
-    print(modified_urls)
+    print(f"{modified_urls}\n")
 
 """
 def is_url_accessible(url):
