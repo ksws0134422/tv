@@ -28,11 +28,13 @@ def modify_urls(url):
         modified_urls.append(modified_url)
 
     return modified_urls
+with open("urllist.txt", 'w', encoding='utf-8') as file:
+file.write(f"{modified_urls}\n")
 
-
+"""
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=0.5)
+        response = requests.get(url, timeout=3)
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -176,3 +178,4 @@ with open("itvlist.txt", 'w', encoding='utf-8') as file:
         except Exception as e:
             print(f"An error occurred while processing URL: {url}")
             print(e)
+"""
